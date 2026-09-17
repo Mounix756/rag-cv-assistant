@@ -1,0 +1,14 @@
+# Environnement virtuel
+venv/
+.venv/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+
+# Données locales et base vectorielle
+vectorstore/
+data/*.pdf
+
+# Environnement et clés API
+.env
