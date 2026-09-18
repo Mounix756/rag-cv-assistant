@@ -8,6 +8,12 @@ Un système RAG (*Retrieval-Augmented Generation*) à but pédagogique permettan
 3. **Retrieval** : Extraction des $k=5$ morceaux du CV les plus pertinents par calcul de similarité vectorielle.
 4. **Génération** : Injection du contexte dans un prompt strict et génération de la réponse via l'API Groq (`openai/gpt-oss-120b`).
 
+## Limites Techniques (v1)
+* **Parsing PDF basique (`PyPDFLoader`)** : Absence d'OCR (incapable de lire les CV sous forme d'images ou de scans) et risque de mélange de texte sur les mises en page à deux colonnes.
+* **Absence d'agrégation globale** : La recherche vectorielle par similarité ne sait pas calculer des critères cumulatifs sur l'ensemble du document (ex : *"calculer le nombre total d'années d'expérience"*).
+* **Analyse mono-document** : Conçu pour interroger un seul CV à la fois, le système ne permet pas le tri, la comparaison ni le filtrage de masse sur un lot de candidats.
+* **Découpage fixe (Chunking)** : Le découpage arbitraire par taille (`chunk_size=500`) peut parfois isoler une compétence de son contexte ou couper une phrase au milieu d'une section.
+
 ## Structure du Projet
 
 ```text
